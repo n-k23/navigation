@@ -1,0 +1,31 @@
+
+	<div ng-controller="myctrl" >
+
+		<!--<div ng-include="'menu_bar.html'"></div>-->
+		
+		<input type="text" placeholder="search color" ng-model="search"/>
+		
+		<ul>
+			<li ng-repeat="x in colors | orderBy:order | filter: search" >
+			
+			<h3>{{x.name}}</h3>
+			
+			<div style="color:red; cursor: pointer; float:right;"  ng-click="removeColor(x)">X</div>
+			
+			<span id="color" style= " float : right; padding: 5px; border-radius : 10px; background: {{x.color}}; margin-right : 10px ">{{x.color}} color</span>
+			
+			</li>
+		</ul>
+		<button ng-click=" order = 'name'">order by name</button>
+		<button ng-click=" order = 'color'">order by color</button>
+		<form align="center" ng-submit="addField()" >
+		<input name="name" id="nme" placeholder="name" ng-model="newfield.name" required/>
+		
+		<input type="text" id="clr" name="color" placeholder="color" ng-model="newfield.color" required/>
+		<input type="submit" value="add"/>
+		
+		</form>
+		
+	</div>
+
+	

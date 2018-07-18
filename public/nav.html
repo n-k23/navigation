@@ -1,0 +1,47 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+<script>
+        var app = angular.module("myApp", ["ngRoute"]);
+        app.config(function($routeProvider) {
+            $routeProvider
+            .when("/click", {
+                templateUrl : "ng_click_eg.html",
+                controller: "myctrl"
+            })
+            .when("/show", {
+                templateUrl : "ng_show_eg.html",
+    
+            })
+            .when("/filters", {
+                templateUrl : "filters_eg.html",
+                controller : "myctrl1"
+            });
+        });
+        
+</script>
+        
+<script src="controllers/click.js">
+            </script>
+<script src="controllers/filter.js">
+</script>
+<style>
+
+    #menu-bar a{
+          color: #fff;
+          float: right;
+  		margin-left: 20px;
+    }</style>
+</head>
+<body ng-app="myApp" >
+        <div ng-include="'menu_bar.html'"></div>
+<div id="menu-bar">
+<a href="#!click">ng-click</a>
+<a href="#!show">ng-show</a>
+<a href="#!filters">filters</a>
+</div><br>
+<div ng-view></div>
+
+</body>
+</html>
